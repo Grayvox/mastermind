@@ -1,1 +1,1 @@
-# To be filled
+# frozen_string_literal: true
