@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-# Defines a human solving the code
+# Defines a human trying to crack the code
 class HumanSolver
   
 end
