@@ -2,6 +2,8 @@
 
 # Houses the general game logic and methods
 module GameLogic
+  
+
   def compare_guess(code, guess)
     results = []
     guess.each_with_index do |guess_el, guess_i|
