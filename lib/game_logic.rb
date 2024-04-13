@@ -13,4 +13,8 @@ module GameLogic
     end
     results.join(' ')
   end
+
+  def correct_guess?(code, guess)
+    code == guess
+  end
 end
