@@ -2,14 +2,16 @@
 
 # Houses the general game logic and methods
 module GameLogic
-  def compare_guess(code, guess)
+  def self.compare_guess(code, guess)
     results = []
+    elements_checked = []
     guess.each_with_index do |guess_el, guess_i|
+      elements_checked.push(guess_el)
       results.push('☑') if code[guess_i] == guess[guess_i]
-      results.push('☒') unless code.include?(guess_el)
-      unless code.count(guess_el) < guess.count(guess_el)
-        results.push('☐') if code[guess_i] != guess[guess_i]
-      end
+      next results.push('☒') unless code.include?(guess_el)
+      next results.push('☒') if code.count(guess_el) < elements_checked.count(guess_el)
+
+      results.push('☐') if code[guess_i] != guess[guess_i]
     end
     results.join(' ')
   end

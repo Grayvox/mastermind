@@ -15,3 +15,5 @@ class Game
     }
   end
 end
+
+puts Game.new.intro_text
