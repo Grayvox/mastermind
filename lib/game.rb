@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require_relative './text'
+
 # Defines the game itself
 class Game
   attr_accessor :colors
