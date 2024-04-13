@@ -50,5 +50,3 @@ class HumanSolver < Game
   end
   # rubocop:enable Metrics/MethodLength
 end
-
-puts HumanSolver.new.human_guess
