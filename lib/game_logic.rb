@@ -2,7 +2,7 @@
 
 # Houses the general game logic and methods
 module GameLogic
-  def self.compare_guess(code, guess)
+  def compare_guess(code, guess)
     results = []
     elements_checked = []
     guess.each_with_index do |guess_el, guess_i|
