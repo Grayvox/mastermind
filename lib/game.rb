@@ -4,6 +4,8 @@ require_relative './text'
 
 # Defines the game itself
 class Game
+  include Text
+
   attr_accessor :colors
 
   def initialize
