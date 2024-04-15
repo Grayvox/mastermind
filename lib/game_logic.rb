@@ -3,6 +3,7 @@
 # Houses the general game logic and methods
 module GameLogic
   def compare_guess(code, guess)
+    # Need to fix issue with repeated check marks (and possibly empty boxes too?)
     results = []
     elements_checked = []
     guess.each_with_index do |guess_el, guess_i|

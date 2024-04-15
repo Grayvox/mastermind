@@ -2,8 +2,6 @@
 
 require_relative './game_logic'
 require_relative './text'
-require 'pry'
-require 'pry-byebug'
 
 # Defines the game itself
 class Game
