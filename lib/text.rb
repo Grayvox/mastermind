@@ -25,9 +25,9 @@ module Text
     \u001b[0m- \u001b[35mPurple
     \u001b[0m- \u001b[36mCyan
     \u001b[0m
-    The code breaker will have 12 turns to crack the code. Each turn, the code breaker can make a guess 
-    containing 4 colors, no more and no less. The game will then provide feedback based off of the code 
-    breaker's guesses. In this version of the game, the feedback comes in the form of the following 
+    The code breaker will have 12 turns to crack the code. Each turn, the code breaker can make a guess
+    containing 4 colors, no more and no less. The game will then provide feedback based off of the code
+    breaker's guesses. In this version of the game, the feedback comes in the form of the following
     possibilities:
 
     ☒ - \u001b[1mThis symbol indicates the color in it's place
@@ -53,8 +53,9 @@ module Text
     \u001b[0m
     )
   end
+  # rubocop:enable Metrics/MethodLength
 
-  def self.results_text(guess, results, turn_count)
+  def results_text(guess, results, turn_count)
     %(
               \u001b[1mTurn ##{turn_count + 1}\u001b[0m
          Guess      Results
@@ -63,5 +64,4 @@ module Text
       ‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
     )
   end
-  # rubocop:enable Metrics/MethodLength
 end
