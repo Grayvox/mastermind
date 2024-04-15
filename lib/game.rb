@@ -25,24 +25,28 @@ class Game
 
   def play
     puts Text.intro_text
-    p 'Press Enter when you are ready to play. '
-    gets.chomp
+    puts 'Alright player, enter your name to begin!'
+    human_name = gets.chomp
     current_game = HumanSolver.new
     code = current_game.generate_code(@colors)
-    turn_cycle(current_game, code)
+    turn_cycle(current_game, code, human_name)
   end
 
-  def turn_cycle(mode, code)
+  def turn_cycle(mode, code, player_name)
     turns_completed = 0
     puts 'Computer has generated the code. Let the game begin!'
     until turns_completed == 12
       puts "Turn #{turns_completed + 1} begins..."
       this_guess = mode.human_guess
-      return stop_game if correct_guess?(code, this_guess)
-
       result = compare_guess(code, this_guess)
       puts Text.results_text(this_guess.join(' '), result, turns_completed)
+      return stop_game(player_name) if correct_guess?(code, this_guess)
+
       turns_completed += 1
     end
+  end
+
+  def stop_game(winner)
+    puts Text.ending_text(winner)
   end
 end
