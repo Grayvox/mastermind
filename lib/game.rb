@@ -38,7 +38,7 @@ class Game
     until turns_completed == 12
       puts "Turn #{turns_completed + 1} begins..."
       this_guess = mode.human_guess
-      return 'The human has won the game!' if correct_guess?(code, this_guess)
+      return stop_game if correct_guess?(code, this_guess)
 
       result = compare_guess(code, this_guess)
       puts Text.results_text(this_guess.join(' '), result, turns_completed)

@@ -64,4 +64,12 @@ module Text
       ‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
     )
   end
+
+  def self.ending_text(winner)
+    %(
+      \s\s\s\s\s\s\u001b[1mGame Over!\u001b[0m
+      \s\s\s\s--------------
+      #{winner} has won the game!
+    )
+  end
 end
