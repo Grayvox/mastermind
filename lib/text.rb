@@ -54,8 +54,9 @@ module Text
     )
   end
 
-  def self.results_text(guess, results)
+  def self.results_text(guess, results, turn_count)
     %(
+              \u001b[1mTurn ##{turn_count + 1}\u001b[0m
          Guess      Results
       _______________________
       | #{guess}\u001b[0m  | #{results}  |
