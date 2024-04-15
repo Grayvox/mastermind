@@ -18,4 +18,8 @@ class Game
       cyan: "\u001b[36m⬤"
     }
   end
+
+  def play
+    
+  end
 end

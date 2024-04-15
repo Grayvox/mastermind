@@ -4,7 +4,7 @@ require_relative './game'
 
 # Defines a human trying to crack the code
 class HumanSolver < Game
-  attr_accessor :computer_code
+  attr_reader :computer_code
 
   def initialize
     super
