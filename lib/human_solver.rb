@@ -16,13 +16,13 @@ class HumanSolver < Game
   end
 
   def human_guess
-    total_guesses = 0
+    inputs_given = 0
     guess = []
-    until total_guesses == 4
-      puts "Input the next color in your guess. (#{total_guesses + 1}/4)"
+    until inputs_given == 4
+      puts "Input the next color in your guess. (#{inputs_given + 1}/4)"
       current_color = gets.chomp.downcase
       check_color = color_check(current_color)
-      next guess.push(check_color) && total_guesses += 1 unless check_color == 'Invalid color'
+      next guess.push(check_color) && inputs_given += 1 unless check_color == 'Invalid color'
 
       puts 'Invalid color name. Please try again.'
     end

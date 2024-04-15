@@ -48,9 +48,18 @@ module Text
     guesses.
 
     Have fun! :D
-    -Grayvox 
+    -Grayvox
     \u001b[37;41m
     \u001b[0m
+    )
+  end
+
+  def self.results_text(guess, results)
+    %(
+         Guess      Results
+      _______________________
+      | #{guess}\u001b[0m  | #{results}  |
+      ‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
     )
   end
   # rubocop:enable Metrics/MethodLength
