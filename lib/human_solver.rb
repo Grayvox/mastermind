@@ -11,6 +11,8 @@ class HumanSolver < Game
     @computer_code = generate_code(@colors)
   end
 
+  private
+
   def generate_code(options = {})
     options.values.to_a.sample(4)
   end
