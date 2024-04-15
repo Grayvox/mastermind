@@ -4,17 +4,9 @@ require_relative './game'
 
 # Defines a human trying to crack the code
 class HumanSolver < Game
-  attr_reader :computer_code
-
-  def initialize
-    super
-    @computer_code = generate_code(@colors)
-  end
-
-  private
-
-  def generate_code(options = {})
-    options.values.to_a.sample(4)
+  def generate_code(options)
+    arr = options.values
+    arr.sample(4)
   end
 
   def human_guess
