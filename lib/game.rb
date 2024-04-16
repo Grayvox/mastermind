@@ -21,13 +21,25 @@ class Game
     }
   end
 
-  def play
-    puts Text.intro_text
+  def play(intro: true)
+    puts Text.intro_text if intro
     puts 'Alright player, enter your name to begin!'
     human_name = gets.chomp
     current_game = HumanSolver.new
     code = current_game.generate_code(@colors)
     turn_cycle(current_game, code, human_name)
+    replay
+  end
+
+  def replay
+    puts 'Would you like to play again? Respond with either Y or N.'
+    answer = gets.chomp.downcase
+    case answer
+    when 'y', 'yes'
+      play(intro: false)
+    else
+      puts 'Thanks for playing! Bye now!'
+    end
   end
 
   def turn_cycle(mode, code, player_name)
@@ -42,6 +54,7 @@ class Game
 
       turns_completed += 1
     end
+    # Add what happens if the player doesn't solve it in 12 turns!
   end
 
   def stop_game(winner)
