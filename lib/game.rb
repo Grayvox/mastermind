@@ -91,7 +91,7 @@ class Game
     puts 'Would you like to play again? Respond with either Y or N.'
     answer = gets.chomp.downcase
     case answer
-    when 'y', 'yes'
+    when 'y', 'ye', 'yes'
       play(intro: false)
     else
       puts 'Thanks for playing! Bye now!'
