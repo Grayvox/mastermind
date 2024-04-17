@@ -63,8 +63,8 @@ module Text
 
   def self.results_text(guess, results, turn_count)
     %(
-              \u001b[1mTurn ##{turn_count + 1}\u001b[0m
-         Guess      Results
+      \s\s\s\s\s\s\s\s\u001b[1mTurn ##{turn_count + 1}\u001b[0m
+      \s\s\sGuess\s\s\s\s\s\sResults
       _______________________
       | #{guess}\u001b[0m  | #{results}  |
       ‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
@@ -76,6 +76,15 @@ module Text
       \s\s\s\s\s\s\u001b[1mGame Over!\u001b[0m
       \s\s\s\s--------------
       #{winner} has won the game!
+    )
+  end
+
+  def self.reveal_code(code)
+    %(
+      Aw man, you didn't solve it in time! :[
+      \s\s\s\s\s\s\s\s\s\s\s___________
+      Code:\s\s\s\s\s\s| #{code}\u001b[0m |
+      \s\s\s\s\s\s\s\s\s\s\s‾‾‾‾‾‾‾‾‾‾‾
     )
   end
 end

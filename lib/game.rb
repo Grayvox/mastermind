@@ -54,7 +54,6 @@ class Game
 
       turns_completed += 1
     end
-    # Add what happens if the player doesn't solve it in 12 turns!
   end
 
   def stop_game(winner)
