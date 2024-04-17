@@ -21,13 +21,65 @@ class Game
     }
   end
 
+  def color_input
+    inputs_given = 0
+    all_inputs = []
+    until inputs_given == 4
+      puts "Input the next color. (#{inputs_given + 1}/4)"
+      current_color = gets.chomp.downcase
+      check_color = color_check(current_color)
+      next all_inputs.push(check_color) && inputs_given += 1 unless check_color == 'Invalid color'
+
+      puts 'Invalid color name. Please try again.'
+    end
+    all_inputs
+  end
+
+  # rubocop:disable Metrics/MethodLength
+  def color_check(input)
+    case input
+    when 'r', 'red'
+      @colors[:red]
+    when 'g', 'green'
+      @colors[:green]
+    when 'y', 'yellow'
+      @colors[:yellow]
+    when 'b', 'blue'
+      @colors[:blue]
+    when 'p', 'purple'
+      @colors[:purple]
+    when 'c', 'cyan'
+      @colors[:cyan]
+    else
+      'Invalid color'
+    end
+  end
+
+  def choose_mode(mode, human_name)
+    case mode.to_i
+    when 1
+      puts "You've chosen to play as the code MAKER!"
+      puts 'This mode is coming soon!'
+    when 2
+      puts "You've chosen to play as the code BREAKER!"
+      code_breaker = HumanSolver.new
+      code = code_breaker.generate_code(@colors)
+      code_breaker.human_code_breaker_cycle(code, human_name)
+    else
+      choose_mode(gets.chomp)
+    end
+  end
+  # rubocop:enable Metrics/MethodLength
+
   def play(intro: true)
     puts Text.intro_text if intro
-    puts 'Alright player, enter your name to begin!'
+    puts 'First, enter your name!'
     human_name = gets.chomp
-    current_game = HumanSolver.new
-    code = current_game.generate_code(@colors)
-    turn_cycle(current_game, code, human_name)
+    puts 'Great! Now pick which gamemode you want to play.
+    Say 1 if you want to play as the code MAKER.
+    Say 2 if you want to play as the code BREAKER.'
+    mode = gets.chomp
+    choose_mode(mode, human_name)
     replay
   end
 
@@ -41,24 +93,6 @@ class Game
       puts 'Thanks for playing! Bye now!'
     end
   end
-
-  # rubocop:disable Metrics/MethodLength
-  def turn_cycle(mode, code, player_name)
-    turns_completed = 0
-    puts 'Computer has generated the code. Let the game begin!'
-    until turns_completed == 12
-      puts "Turn #{turns_completed + 1} begins..."
-      this_guess = mode.human_guess
-      result = compare_guess(code, this_guess)
-      puts Text.results_text(this_guess.join(' '), result, turns_completed)
-      return stop_game(player_name) if correct_guess?(code, this_guess)
-
-      turns_completed += 1
-    end
-    puts Text.reveal_code(code.join(' '))
-    stop_game('Computer')
-  end
-  # rubocop:enable Metrics/MethodLength
 
   def stop_game(winner)
     puts Text.ending_text(winner)
