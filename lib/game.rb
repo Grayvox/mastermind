@@ -42,6 +42,7 @@ class Game
     end
   end
 
+  # rubocop:disable Metrics/MethodLength
   def turn_cycle(mode, code, player_name)
     turns_completed = 0
     puts 'Computer has generated the code. Let the game begin!'
@@ -54,7 +55,10 @@ class Game
 
       turns_completed += 1
     end
+    puts Text.reveal_code(code.join(' '))
+    stop_game('Computer')
   end
+  # rubocop:enable Metrics/MethodLength
 
   def stop_game(winner)
     puts Text.ending_text(winner)
