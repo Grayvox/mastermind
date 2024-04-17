@@ -8,7 +8,7 @@ class Game
   include Text
   include GameLogic
 
-  attr_accessor :colors
+  attr_reader :colors
 
   def initialize
     @colors = {
@@ -20,6 +20,8 @@ class Game
       cyan: "\u001b[36m⬤"
     }
   end
+
+  private
 
   def color_input
     inputs_given = 0
@@ -71,6 +73,8 @@ class Game
   end
   # rubocop:enable Metrics/MethodLength
 
+  public
+
   def play(intro: true)
     puts Text.intro_text if intro
     puts 'First, enter your name!'
@@ -93,6 +97,8 @@ class Game
       puts 'Thanks for playing! Bye now!'
     end
   end
+
+  private
 
   def stop_game(winner)
     puts Text.ending_text(winner)
