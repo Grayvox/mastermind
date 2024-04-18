@@ -29,7 +29,6 @@ class ComputerSolver < Game
   # rubocop:enable Metrics/MethodLength
 
   def generate_guess(saved_colors = nil)
-    @possibilities.delete(:green)
     guess = @possibilities.values.sample(4)
     return guess unless saved_colors.is_a?(Hash)
 
