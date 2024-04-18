@@ -22,4 +22,14 @@ class ComputerSolver < Game
     end
   end
   # rubocop:enable Metrics/MethodLength
+
+  def generate_guess(saved_colors = nil)
+    guess = @colors.values.sample(4)
+    return guess unless saved_colors.is_a?(Hash)
+
+    saved_colors.each do |key, value|
+      guess[key.to_i] = value
+    end
+    guess
+  end
 end
