@@ -4,6 +4,11 @@ require_relative './game'
 
 # Defines when the computer is trying to crack the code
 class ComputerSolver < Game
+  def initialize
+    super
+    @possibilities = @colors
+  end
+
   # rubocop:disable Metrics/MethodLength
   def human_code_maker(first_text: true)
     puts 'As the code maker, please enter your choices for the code.' if first_text
@@ -24,7 +29,8 @@ class ComputerSolver < Game
   # rubocop:enable Metrics/MethodLength
 
   def generate_guess(saved_colors = nil)
-    guess = @colors.values.sample(4)
+    @possibilities.delete(:green)
+    guess = @possibilities.values.sample(4)
     return guess unless saved_colors.is_a?(Hash)
 
     saved_colors.each do |key, value|
