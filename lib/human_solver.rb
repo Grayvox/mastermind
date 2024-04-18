@@ -13,7 +13,7 @@ class HumanSolver < Game
   end
 
   # rubocop:disable Metrics/MethodLength
-  def human_code_breaker_cycle(code, player_name)
+  def human_code_breaker_cycle(code, human_name)
     turns_completed = 0
     puts 'Computer has generated the code. Let the game begin!'
     until turns_completed == 12
@@ -21,7 +21,7 @@ class HumanSolver < Game
       this_guess = color_input
       result = compare_guess(code, this_guess)
       puts Text.results_text(this_guess.join(' '), result, turns_completed)
-      return stop_game(player_name) if correct_guess?(code, this_guess)
+      return stop_game(human_name) if correct_guess?(code, this_guess)
 
       turns_completed += 1
     end

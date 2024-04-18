@@ -7,6 +7,7 @@ class ComputerSolver < Game
   def initialize
     super
     @possibilities = @colors
+    @correct_colors = nil
   end
 
   # rubocop:disable Metrics/MethodLength
@@ -38,10 +39,15 @@ class ComputerSolver < Game
     guess
   end
 
-  def check_for_fails(guess, results)
+  def check_correctness(guess, results)
     results_arr = results.split(' ')
     guess.each_with_index do |element, index|
       @possibilities.delete(@possibilities.key(element)) if results_arr[index] == '☒'
+      @correct_colors = {} if @correct_colors.nil?
+      @correct_colors[index] = element if results_arr[index] == '☑'
     end
+    puts "
+    Correct colors are: #{@correct_colors}
+    And possibilities are: #{@possibilities}"
   end
 end
