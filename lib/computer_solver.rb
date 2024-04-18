@@ -37,4 +37,11 @@ class ComputerSolver < Game
     end
     guess
   end
+
+  def check_for_fails(guess, results)
+    results_arr = results.split(' ')
+    guess.each_with_index do |element, index|
+      @possibilities.delete(@possibilities.key(element)) if results_arr[index] == '☒'
+    end
+  end
 end
