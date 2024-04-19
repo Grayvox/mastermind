@@ -17,11 +17,6 @@ class ComputerSolver < Game
     puts 'The human has created the code. Let the game begin!'
     until turns_completed == 12
       puts "Turn #{turns_completed + 1} begins..."
-      puts "
-      Possibilities: #{@possibilities}
-      Watch For: #{@watch_for}
-      Correct Colors: #{@correct_colors}
-      "
       this_guess = generate_guess(@correct_colors)
       result = compare_guess(code, this_guess)
       puts Text.results_text(this_guess.join(' '), result, turns_completed)
