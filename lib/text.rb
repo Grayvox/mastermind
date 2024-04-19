@@ -45,7 +45,7 @@ module Text
     is both in the code AND in the correct spot.
     \u001b[0m
 
-    The two options for game modes are either you are the code MAKER or the code BREAKER. 
+    The two options for game modes are either you are the code MAKER or the code BREAKER.
 
     As the code MAKER, you will have to make up a code of colors, that follows the guidelines laid
     out earlier, for the computer to solve.
