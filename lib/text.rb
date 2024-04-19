@@ -83,7 +83,7 @@ module Text
     %(
       Aw man, you didn't solve it in time! :[
       \s\s\s\s\s\s\s\s\s\s\s___________
-      Code:\s\s\s\s\s\s| #{code}\u001b[0m |
+      Code:\s\s\s\s\s\s| #{code.join(' ')}\u001b[0m |
       \s\s\s\s\s\s\s\s\s\s\s‾‾‾‾‾‾‾‾‾‾‾
     )
   end

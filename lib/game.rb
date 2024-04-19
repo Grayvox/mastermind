@@ -61,7 +61,9 @@ class Game
     case mode.to_i
     when 1
       puts "You've chosen to play as the code MAKER!"
-      puts 'This mode is coming soon!'
+      code_breaker = ComputerSolver.new
+      code = code_breaker.human_code_maker
+      code_breaker.computer_code_breaker_cycle(code, human_name)
     when 2
       puts "You've chosen to play as the code BREAKER!"
       code_breaker = HumanSolver.new
