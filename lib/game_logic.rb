@@ -7,9 +7,8 @@ module GameLogic
     guess.each_with_index do |guess_el, guess_i|
       next results.push('☑') if code[guess_i] == guess[guess_i]
       next results.push('☒') unless code.include?(guess_el)
-      next results.push('☒') if code.count(guess_el) < guess.count(guess_el)
 
-      results.push('☐') if code[guess_i] != guess[guess_i]
+      results.push('☐')
     end
     results.join(' ')
   end
