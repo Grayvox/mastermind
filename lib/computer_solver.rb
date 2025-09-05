@@ -66,8 +66,6 @@ class ComputerSolver < Game
   def validate_colors
     result = Array.new(4)
     available_colors = @possibilities.values - @incorrect_colors
-    puts 'Available colors:'
-    p available_colors
     result.each_with_index do |_, index|
       validate_individual_color(available_colors, result, index)
     end
@@ -76,16 +74,12 @@ class ComputerSolver < Game
 
   def validate_individual_color(available_colors, result, index)
     valid_colors_for_position = available_colors - @wrong_spots[index]
-    puts 'Wrong spots:'
-    p @wrong_spots
 
     if valid_colors_for_position.empty?
-      puts "Warning: No ideal colors available for position #{index}, using fallback"
+      # In the rare case that there are no ideal colors available
       valid_colors_for_position = available_colors
     end
 
-    puts "Valid colors for #{index}:"
-    puts valid_colors_for_position
     result[index] = valid_colors_for_position.sample
   end
 
@@ -98,11 +92,11 @@ class ComputerSolver < Game
 
   def check_individual_correctness(results, element, index)
     case results[index]
-    when '☒' # Completely wrong color
+    when '☒'
       @incorrect_colors.push(element) unless @incorrect_colors.include?(element)
-    when '☐' # Right color, wrong position
+    when '☐'
       @wrong_spots[index].push(element) unless @wrong_spots[index].include?(element)
-    when '☑' # Correct color and position (assuming this is your correct marker)
+    when '☑'
       @correct_colors = {} if @correct_colors.nil?
       @correct_colors[index] = element
     end
