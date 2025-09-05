@@ -1,2 +1,6 @@
 language = "ruby"
 run = "ruby lib/main.rb"
+modules = ["ruby-3.2"]
+
+[agent]
+expertMode = true
