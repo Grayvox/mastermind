@@ -37,8 +37,7 @@ class Game
     all_inputs
   end
 
-  # rubocop:disable Metrics/MethodLength
-  def color_check(input)
+  def color_check(input) # rubocop:disable Metrics/MethodLength
     case input
     when 'r', 'red'
       @colors[:red]
@@ -57,7 +56,7 @@ class Game
     end
   end
 
-  def choose_mode(mode, human_name)
+  def choose_mode(mode, human_name = nil) # rubocop:disable Metrics/MethodLength
     case mode.to_i
     when 1
       puts "You've chosen to play as the code MAKER!"
@@ -73,7 +72,6 @@ class Game
       choose_mode(gets.chomp)
     end
   end
-  # rubocop:enable Metrics/MethodLength
 
   public
 

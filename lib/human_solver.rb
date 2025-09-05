@@ -12,8 +12,7 @@ class HumanSolver < Game
     arr.sample(4)
   end
 
-  # rubocop:disable Metrics/MethodLength
-  def human_code_breaker_cycle(code, human_name)
+  def human_code_breaker_cycle(code, human_name) # rubocop:disable Metrics/MethodLength
     turns_completed = 0
     puts 'Computer has generated the code. Let the game begin!'
     until turns_completed == 12
@@ -28,5 +27,4 @@ class HumanSolver < Game
     puts Text.reveal_code(code.join(' '))
     stop_game('Computer')
   end
-  # rubocop:enable Metrics/MethodLength
 end

@@ -17,8 +17,7 @@ class ComputerSolver < Game
     @incorrect_colors = []
   end
 
-  # rubocop:disable Metrics/MethodLength
-  def computer_code_breaker_cycle(code, human_name)
+  def computer_code_breaker_cycle(code, human_name) # rubocop:disable Metrics/MethodLength
     turns_completed = 0
     puts 'The human has created the code. Let the game begin!'
     until turns_completed == 12
@@ -36,7 +35,7 @@ class ComputerSolver < Game
     stop_game(human_name)
   end
 
-  def human_code_maker(first_text: true)
+  def human_code_maker(first_text: true) # rubocop:disable Metrics/MethodLength
     puts 'As the code maker, please enter your choices for the code.' if first_text
     code = color_input
     puts "To confirm, is this the code you want the computer to try and solve? Respond with either Y or N.
@@ -51,7 +50,6 @@ class ComputerSolver < Game
       human_code_maker(first_text: false)
     end
   end
-  # rubocop:enable Metrics/MethodLength
 
   def generate_guess
     guess = validate_colors

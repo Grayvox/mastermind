@@ -2,8 +2,7 @@
 
 # Provides the text for the beginning tutorial
 module Text
-  # rubocop:disable Metrics/MethodLength
-  def self.intro_text
+  def self.intro_text # rubocop:disable Metrics/MethodLength
     %(
     \u001b[37;41m\n
     ===================
@@ -60,7 +59,6 @@ module Text
     \u001b[0m
     )
   end
-  # rubocop:enable Metrics/MethodLength
 
   def self.results_text(guess, results, turn_count)
     %(
